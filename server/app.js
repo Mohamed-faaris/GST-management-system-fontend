@@ -40,7 +40,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check
-app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
+app.get('/api/health', (req, res) => res.json({ 
+  status: 'ok',
+  timestamp: new Date().toISOString(),
+  database: isConnected ? 'connected' : 'disconnected',
+  cors: process.env.CLIENT_URLS ? process.env.CLIENT_URLS.split(',') : [],
+
+}));
 
 // Routes
 app.use('/api/auth', authRoutes);
