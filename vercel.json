@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "installCommand": "npm install -g pnpm@10 && pnpm install",
-  "buildCommand": "pnpm run build",
+  "installCommand": "pnpm install:all",
+  "buildCommand": "cd client && pnpm run build",
   "outputDirectory": "client/dist",
   "framework": "vite",
   "routes": [
