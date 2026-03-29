@@ -1,3 +1,4 @@
+//app.js
 require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
 const express = require('express');
 const cors = require('cors');
@@ -16,7 +17,7 @@ const app = express();
 // Security
 app.use(helmet());
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
+  origin: [process.env.CLIENT_URLS ? process.env.CLIENT_URLS.split(',') : []],
   credentials: true,
 }));
 

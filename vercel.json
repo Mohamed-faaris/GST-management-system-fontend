@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "installCommand": "npm install -g pnpm@10 && pnpm install",
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "client/dist",
+  "framework": "vite",
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/app.js"
+    },
+    {
+      "src": "/((?!api/|assets/|uploads/|.*\\..*).*)",
+      "dest": "/index.html"
+    }
+  ]
+}
